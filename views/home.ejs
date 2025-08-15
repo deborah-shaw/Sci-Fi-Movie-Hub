@@ -1,0 +1,36 @@
+<%- include('partials/header.ejs') %>
+<body>
+  <header class="site-header">
+    <h1 class="site-title"><a href="/" class="link-offset-2 link-underline link-underline-opacity-0">Sci-fi Movie Hub</a></h1>
+    
+    <% if (username) { %>
+      <h2>Welcome, <%= username %>!</h2>
+      <a href="/logout" class="btn btn-primary">Logout</a>
+      <a href="/changePassword?username=<%= username %>" class="btn btn-primary">Change Password</a>
+    <% } else { %>
+      <a href="/login" class="btn btn-primary">Login</a>
+      <a href="/signup" class="btn btn-primary">Sign Up</a>
+    <% } %>
+  </header>
+
+  <% if (successMessage) { %>
+  <div class="alert alert-success">
+    <%= successMessage %>
+  </div>
+  <% } %>
+  
+  <main class="container">
+    <section class="categories">
+      <h2>Categories</h2>
+      <div class="list-group">
+        <% genres.forEach(genre => { %>
+          <a href="/category/<%= genre.id %>" class="list-group-item list-group-item-action list-group-item-success"><%= genre.name %></a>
+        <% }); %>
+      </div>
+    </section>
+  </main>
+<!-- Dark mode button -->
+<button id="dark-mode-button" class="btn btn-secondary">Toggle Dark Mode</button>
+<script src="/js/dark-mode.js"></script>
+</body>
+</html>

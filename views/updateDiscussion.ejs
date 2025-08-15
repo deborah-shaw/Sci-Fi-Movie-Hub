@@ -1,0 +1,24 @@
+<%- include('partials/header.ejs') %>
+<body>
+  <header class="site-header">
+    <h1 class="site-title"><a href="/" class="link-offset-2 link-underline link-underline-opacity-0">Sci-fi Movie Hub</a></h1>
+  </header>
+
+<main class="update-container">
+  <h2 class="section-title">Update Discussion</h2>
+  <form method="POST" action="/discussionUpdate/<%=discussion[0].id%>">
+    <input type="hidden" name="genre_id" value="<%=discussion[0].genre_id%>">
+    <label for="title">Discussion:</label>
+    <input type="text" id="title" name="title" value="<%=discussion[0].title%>" class="form-control"><br><br>
+    <div class="update-button-group">
+      <button type="submit" class="btn btn-primary update-btn">Update</button>
+      <%- include('partials/backButton.ejs') %>
+    </div>
+  </form>
+</main>
+
+  <!-- Dark mode button -->
+  <button id="dark-mode-button" class="btn btn-secondary">Toggle Dark Mode</button>
+  <script src="/js/dark-mode.js"></script>
+</body>
+</html>

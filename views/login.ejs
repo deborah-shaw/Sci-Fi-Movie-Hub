@@ -1,0 +1,29 @@
+<%- include('partials/header.ejs') %>
+ <body>
+     <header class="site-header">
+       <h1 class="site-title"><a href="/" class="link-offset-2 link-underline link-underline-opacity-0">Sci-fi Movie Hub</a></h1>
+   </header>
+   <main class="container">
+   <form id="loginForm" action="/login" method="post">
+      <h2>Login</h2>
+     <label for="username">Username:</label>
+     <input type="text" id="username" name="username" required><br><br>
+
+     <label for="password">Password:</label>
+     <input type="text" id="password" name="password" required><br><br>
+
+     <div class="button-group">
+       <input type="submit" class="btn btn-success" value="Login">
+       <%- include('partials/backButton.ejs') %>
+     </div>
+   </form>
+     </main>
+   <% if (typeof loginError != "undefined" && loginError) { %>
+     <h3 class="error">Wrong credentials</h3>
+  <% } %>
+  <!-- Dark mode button -->
+  <button id="dark-mode-button" class="btn btn-secondary">Toggle Dark Mode</button>
+  <script src="/js/dark-mode.js"></script>
+  <script src="/js/scripts.js"></script>
+ </body>
+</html>

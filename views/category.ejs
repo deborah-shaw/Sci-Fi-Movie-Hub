@@ -1,0 +1,63 @@
+<%- include('partials/header.ejs') %>
+<body>
+  <header class="site-header">
+    <h1 class="site-title"><a href="/" class="link-offset-2 link-underline link-underline-opacity-0">Sci-fi Movie Hub</a></h1>
+    <% if (!isLoggedIn) { %>
+      <a href="/login" class="btn btn-primary">Login</a>
+      <a href="/signup" class="btn btn-primary">Sign Up</a>
+    <% } %>
+  </header>
+  <br>
+  <h1 class="category-title"><%= category.name %></h1>
+  <main class="container">
+    <section class="discussions">
+      <h2>Discussions</h2>
+
+      <!-- Filter Form -->
+      <form id="filterForm" method="GET" action="/category/<%= category.id %>" class="d-flex justify-content-center align-items-center mb-3">
+        <select name="filter" id="filter" class="form-select">
+          <option value="">List by</option>
+          <option value="recent">Newest First</option>
+          <option value="oldest">Oldest First</option>
+        </select>
+        <button type="submit" class="btn btn-primary ml-2">Filter</button>
+      </form>
+      
+      <% let totalDiscussion = 0; %>
+      <form action="/discussionUpdate">
+      <div class="list-group">
+        <% discussions.forEach(discussion => { %>
+          <div class="list-group-item list-group-item-action list-group-item-success d-flex justify-content-between align-items-center">
+            <a class="link-offset-2 link-underline link-underline-opacity-0" href="/discussion/<%= discussion.id %>"><%=discussion.id%>. <%= discussion.title %></a>
+              <% if (discussion.user_id == userId || userId == "admin") { %>
+                <% totalDiscussion += 1; %> 
+                <div class="d-flex align-items-center">
+                <input type="radio" name="discussion_id" value="<%=discussion.id%>" class="mr-2">
+                <a href="/discussionDelete?discussion_id=<%=discussion.id%>&genre_id=<%=discussion.genre_id%>"><img src="/img/x.jpg" alt="Delete" width="20" height="20" class="x-image"></a>
+                </div>
+              <% } %>
+          </div>
+        <% }); %>
+      </div>
+      <% if (totalDiscussion > 0) { %>
+        <br><button id="update" class="btn update-btn">Update</button><br>
+      <% } %>
+      </form>   
+      <br>
+      <% if (isLoggedIn) { %>
+        <form action="/category/<%= category.id %>/new-discussion" method="post">
+          <input type="text" name="title" placeholder="New Discussion">
+          <br><br>
+          <div class="button-group">
+            <button type="submit" class="btn create-btn">Create</button>
+            <%- include('partials/backButton.ejs') %>
+          </div>
+        </form>
+      <% } %>
+    </section>
+  </main>
+<!-- Dark mode button -->
+<button id="dark-mode-button" class="btn btn-secondary">Toggle Dark Mode</button>
+<script src="/js/dark-mode.js"></script>
+</body>
+</html>

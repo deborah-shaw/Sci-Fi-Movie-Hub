@@ -39,6 +39,7 @@ Includes authentication, password encryption, session handling, and a simple MyS
 
 ## 📂 Project Structure
 
+```text
 project/
 ├── public/ # Static files (CSS, JS, images)
 │ ├── css/
@@ -51,7 +52,7 @@ project/
 ├── index.js # Main server file
 ├── package.json
 └── README.md
-
+```
 
 ---
 

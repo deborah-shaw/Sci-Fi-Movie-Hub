@@ -69,73 +69,73 @@ project/
 
 3. Configure the Database
 
-Create a MySQL database (e.g., scifi_hub)
+  Create a MySQL database (e.g., scifi_hub)
 
-Create the required tables:
+  Create the required tables:
 
-CREATE TABLE users (
+  CREATE TABLE users (
     id INT AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(255) UNIQUE,
     password VARCHAR(255)
-);
+  );
 
-CREATE TABLE genres (
+  CREATE TABLE genres (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(255)
-);
+  );
 
-CREATE TABLE discussions (
+  CREATE TABLE discussions (
     id INT AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR(255),
     genre_id INT,
     user_id INT,
     FOREIGN KEY (genre_id) REFERENCES genres(id),
     FOREIGN KEY (user_id) REFERENCES users(id)
-);
+  );
 
-CREATE TABLE comments (
+  CREATE TABLE comments (
     id INT AUTO_INCREMENT PRIMARY KEY,
     text TEXT,
     discussion_id INT,
     user_id INT,
     FOREIGN KEY (discussion_id) REFERENCES discussions(id),
     FOREIGN KEY (user_id) REFERENCES users(id)
-);
+  );
 
-Add some sample genres:
+  Add some sample genres:
 
-INSERT INTO genres (name) VALUES ('Space Opera'), ('Time Travel'), ('Alien Encounters');
+  INSERT INTO genres (name) VALUES ('Space Opera'), ('Time Travel'), ('Alien Encounters');
 
-Update dbPool.js with your database credentials:
+  Update dbPool.js with your database credentials:
 
-const mysql = require("mysql");
-const pool = mysql.createPool({
-  connectionLimit: 10,
-  host: "localhost",
-  user: "root",
-  password: "your_password",
-  database: "scifi_hub"
-});
-module.exports = pool;
+  const mysql = require("mysql");
+  const pool = mysql.createPool({
+    connectionLimit: 10,
+    host: "localhost",
+    user: "root",
+    password: "your_password",
+    database: "scifi_hub"
+  });
+  module.exports = pool;
 
 4. Run the App
-
-node index.js
+   ```bash
+   node index.js
 
 App will be available at http://localhost:3000
 
 
 🚀 Future Improvements
 
-Add user avatars
+  Add user avatars
 
-Pagination for discussions & comments
+  Pagination for discussions & comments
 
-Rich text editor for posts
+  Rich text editor for posts
 
-Search functionality
+  Search functionality
 
 
 📜 License
 
-This project is licensed under the MIT License.
+  This project is licensed under the MIT License.

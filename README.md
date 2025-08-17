@@ -107,17 +107,19 @@ project/
 
   INSERT INTO genres (name) VALUES ('Space Opera'), ('Time Travel'), ('Alien Encounters');
 
-  Update ```dbPool.js``` with your database credentials:
+  Update `dbPool.js` with your database credentials:
 
-  const mysql = require("mysql");
-  const pool = mysql.createPool({
-    connectionLimit: 10,
-    host: "localhost",
-    user: "root",
-    password: "your_password",
-    database: "scifi_hub"
-  });
-  module.exports = pool;
+   ```js
+   const mysql = require("mysql");
+   const pool = mysql.createPool({
+     connectionLimit: 10,
+     host: "localhost",
+     user: "root",
+     password: "your_password",
+     database: "scifi_hub"
+   });
+   module.exports = pool;
+  ```
 
 4. Run the App
    ```bash

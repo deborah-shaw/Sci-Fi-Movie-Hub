@@ -111,34 +111,34 @@ project/
 
   Update `dbPool.js` with your database credentials:
 
-   ```js
-   const mysql = require("mysql");
-   const pool = mysql.createPool({
-     connectionLimit: 10,
-     host: "localhost",
-     user: "root",
-     password: "your_password",
-     database: "scifi_hub"
-   });
-   module.exports = pool;
-  ```
+     ```js
+     const mysql = require("mysql");
+     const pool = mysql.createPool({
+       connectionLimit: 10,
+       host: "localhost",
+       user: "root",
+       password: "your_password",
+       database: "scifi_hub"
+     });
+     module.exports = pool;
+    ```
 
 4. Run the App
-   ```bash
-   node index.js
+     ```bash
+     node index.js
 
 App will be available at http://localhost:3000
 
 
 🚀 Future Improvements
 
-  Add user avatars
+  - Add user avatars
 
-  Pagination for discussions & comments
+  - Pagination for discussions & comments
 
-  Rich text editor for posts
+  - Rich text editor for posts
 
-  Search functionality
+  - Search functionality
 
 
 📜 License

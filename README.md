@@ -102,26 +102,27 @@ project/
      FOREIGN KEY (discussion_id) REFERENCES discussions(id),
      FOREIGN KEY (user_id) REFERENCES users(id)
    );
+   ```
 
-  Add some sample genres:
+    Add some sample genres:
 
-  ```sql
-  INSERT INTO genres (name) VALUES ('Space Opera'), ('Time Travel'), ('Alien Encounters');
-  ```
+    ```sql
+    INSERT INTO genres (name) VALUES ('Space Opera'), ('Time Travel'), ('Alien Encounters');
+    ```
 
-  Update `dbPool.js` with your database credentials:
+    Update `dbPool.js` with your database credentials:
 
-   ```js
-   const mysql = require("mysql");
-   const pool = mysql.createPool({
-     connectionLimit: 10,
-     host: "localhost",
-     user: "root",
-     password: "your_password",
-     database: "scifi_hub"
-   });
-   module.exports = pool;
-  ```
+    ```js
+    const mysql = require("mysql");
+    const pool = mysql.createPool({
+      connectionLimit: 10,
+      host: "localhost",
+      user: "root",
+      password: "your_password",
+      database: "scifi_hub"
+    });
+    module.exports = pool;
+    ```
 
 4. Run the App
      ```bash

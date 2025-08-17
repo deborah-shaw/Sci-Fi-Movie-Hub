@@ -111,17 +111,17 @@ project/
 
   Update `dbPool.js` with your database credentials:
 
-     ```js
-     const mysql = require("mysql");
-     const pool = mysql.createPool({
-       connectionLimit: 10,
-       host: "localhost",
-       user: "root",
-       password: "your_password",
-       database: "scifi_hub"
-     });
-     module.exports = pool;
-    ```
+   ```js
+   const mysql = require("mysql");
+   const pool = mysql.createPool({
+     connectionLimit: 10,
+     host: "localhost",
+     user: "root",
+     password: "your_password",
+     database: "scifi_hub"
+   });
+   module.exports = pool;
+  ```
 
 4. Run the App
      ```bash

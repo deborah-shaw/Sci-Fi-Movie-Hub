@@ -105,7 +105,9 @@ project/
 
   Add some sample genres:
 
+  ```sql
   INSERT INTO genres (name) VALUES ('Space Opera'), ('Time Travel'), ('Alien Encounters');
+  ```
 
   Update `dbPool.js` with your database credentials:
 

@@ -64,8 +64,8 @@ project/
    cd sci-fi-movie-hub
 
 2. Install Dependencies
-
-npm install
+   ```bash
+   npm install
 
 3. Configure the Database
 

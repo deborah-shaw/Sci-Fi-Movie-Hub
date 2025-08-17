@@ -127,8 +127,9 @@ project/
 4. Run the App
      ```bash
      node index.js
+     ```
 
-App will be available at http://localhost:3000
+   App will be available at http://localhost:3000
 
 
 🚀 Future Improvements

@@ -62,6 +62,7 @@ project/
 ```bash
 git clone https://github.com/your-username/sci-fi-movie-hub.git
 cd sci-fi-movie-hub
+```
 
 2. Install Dependencies
 

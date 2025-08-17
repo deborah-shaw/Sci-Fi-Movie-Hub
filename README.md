@@ -144,4 +144,4 @@ App will be available at http://localhost:3000
 
 📜 License
 
-  This project is licensed under the MIT License.
+  - This project is licensed under the MIT License.
